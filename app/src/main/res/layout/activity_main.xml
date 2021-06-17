@@ -226,13 +226,6 @@
         app:layout_constraintVertical_bias="0.5"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/LinearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="5dp" />
-
     <ImageView
         android:id="@+id/icon"
         android:layout_width="match_parent"
@@ -240,6 +233,7 @@
         android:background="#CFD2FE"
         android:src="@drawable/free"
         android:scaleType="fitXY"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
