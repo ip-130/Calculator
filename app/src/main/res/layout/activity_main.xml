@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toStartOf="@id/button_Two"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.5"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintHorizontal_chainStyle="packed"/>
 
@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toTopOf="@id/button_Five"
         app:layout_constraintEnd_toStartOf="@id/button_Three"
         app:layout_constraintStart_toEndOf="@id/button_One"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.5"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"/>
 
@@ -42,7 +42,7 @@
         app:layout_constraintBottom_toTopOf="@id/button_Six"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_Two"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.5"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"/>
 
@@ -113,5 +113,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_Eight"
         app:layout_constraintTop_toBottomOf="@id/button_Six" />
+
+    <Button
+        android:id="@+id/button_Null"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/_0"
+        android:textSize="@dimen/button_text"
+        app:layout_constraintEnd_toStartOf="@id/button_Point"
+        app:layout_constraintStart_toStartOf="@id/button_Seven"
+        app:layout_constraintTop_toBottomOf="@id/button_Eight" />
+
+    <Button
+        android:id="@+id/button_Point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_point"
+        android:textSize="@dimen/button_text"
+        app:layout_constraintEnd_toEndOf="@id/button_Nine"
+        app:layout_constraintStart_toEndOf="@id/button_Null"
+        app:layout_constraintTop_toBottomOf="@id/button_Nine" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
