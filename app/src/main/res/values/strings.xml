@@ -13,11 +13,12 @@
     <string name="_point">.</string>
     <string name="_Sum">+</string>
     <string name="_Razn">-</string>
-    <string name="_Pow">x</string>
+    <string name="_Pow">X</string>
     <string name="_Div">/</string>
     <string name="_Equals">=</string>
     <string name="_Clear">AC</string>
     <string name="_ClearOneSymbol">C</string>
     <string name="_Persent">%</string>
+    <string name="X">X</string>
     />
 </resources>

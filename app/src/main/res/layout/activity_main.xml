@@ -156,7 +156,7 @@
         android:id="@+id/button_Pow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="x"
+        android:text="@string/X"
         android:textSize="@dimen/button_text"
         app:layout_constraintBottom_toTopOf="@id/button_Razn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -185,7 +185,7 @@
         app:layout_constraintBottom_toBottomOf="@id/button_Point"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_Point"
-        app:layout_constraintTop_toBottomOf="@id/button_Sum"
+        app:layout_constraintTop_toBottomOf="@id/button_Sum"/>
 
     <Button
         android:id="@+id/button_Clear"
