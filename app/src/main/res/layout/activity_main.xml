@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/free"
     tools:context=".MainActivity">
 
     <Button
@@ -226,13 +227,6 @@
         app:layout_constraintVertical_bias="0.5"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#CFD2FE"
-        android:src="@drawable/free"
-        android:scaleType="fitXY"/>
 
 
 
