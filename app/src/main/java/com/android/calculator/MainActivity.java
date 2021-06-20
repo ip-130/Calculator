@@ -5,14 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "LifeCycleActivity";
+
+    EditText edtWindowOutput;
+
+    String operation = "";
+
+    TextView Result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +50,27 @@ public class MainActivity extends AppCompatActivity {
         Button btnPersent = (Button) findViewById(R.id.button_Persent);
         Button btnClear = (Button) findViewById(R.id.button_Clear);
         Button btnClearOneSymbol = (Button) findViewById(R.id.button_ClearOneSymbol);
+
+        ////button handler
+        btnOne.setOnClickListener(this);
+        btnTwo.setOnClickListener(this);
+        btnThree.setOnClickListener(this);
+        btnFour.setOnClickListener(this);
+        btnFive.setOnClickListener(this);
+        btnSix.setOnClickListener(this);
+        btnSeven.setOnClickListener(this);
+        btnEight.setOnClickListener(this);
+        btnNine.setOnClickListener(this);
+        btnNull.setOnClickListener(this);
+        btnPoint.setOnClickListener(this);
+        btnSum.setOnClickListener(this);
+        btnRazn.setOnClickListener(this);
+        btnDiv.setOnClickListener(this);
+        btnPow.setOnClickListener(this);
+        btnEquals.setOnClickListener(this);
+        btnPersent.setOnClickListener(this);
+        btnClear.setOnClickListener(this);
+        btnClearOneSymbol.setOnClickListener(this);
     }
 
     @Override
@@ -94,5 +124,41 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), message,
                 Toast.LENGTH_SHORT).show();
         Log.d(TAG, message);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int number1 = 0;
+        int number2 = 0;
+        int result = 0;
+
+        if (TextUtils.isEmpty(edtWindowOutput.getText().toString()))
+            return;
+
+        number1 = Integer.parseInt(edtWindowOutput.getText().toString());
+
+        switch (v.getId()){
+            case R.id.button_Sum:
+                operation = "+";
+                result = number1 + number2;
+                break;
+            case R.id.button_Razn:
+                operation = "-";
+                result = number1 - number2;
+                break;
+            case R.id.button_Div:
+                operation = "/";
+                result = number1 / number2;
+                break;
+            case R.id.button_Pow:
+                operation = "*";
+                result = number1 * number2;
+                break;
+            default:
+                break;
+        }
+
+        result.setText(number1 + " " + operation + " " + number2 + " = " + result);
+
     }
 }
