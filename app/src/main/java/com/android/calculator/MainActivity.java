@@ -13,11 +13,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "LifeCycleActivity";
 
-    EditText edtWindowOutput;
+    private EditText editText;
 
     String operation = "";
 
@@ -28,8 +30,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+    }
+
+
+    public void initView(){
         //find elements activity_main
-        EditText edtWindowOutput = (EditText) findViewById(R.id.windowOutput);
+        editText = (EditText) findViewById(R.id.windowOutput);
 
         Button btnOne = (Button) findViewById(R.id.button_One);
         Button btnTwo = (Button) findViewById(R.id.button_Two);
@@ -132,12 +138,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int number2 = 0;
         int result = 0;
 
-        if (TextUtils.isEmpty(edtWindowOutput.getText().toString()))
+        if (TextUtils.isEmpty(editText.getText().toString()))
             return;
 
-        number1 = Integer.parseInt(edtWindowOutput.getText().toString());
+        number1 = Integer.parseInt(editText.getText().toString());
 
         switch (v.getId()){
+            case R.id.button_One:
+                editText.setText(String.format(Locale.getDefault(),("ddd")));
             case R.id.button_Sum:
                 operation = "+";
                 result = number1 + number2;
@@ -158,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
-        result.setText(number1 + " " + operation + " " + number2 + " = " + result);
+//        result.(number1 + " " + operation + " " + number2 + " = " + result);
 
     }
 }

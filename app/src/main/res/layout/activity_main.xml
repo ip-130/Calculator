@@ -11,7 +11,7 @@
         android:id="@+id/windowOutput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="@dimen/marginTop"
         android:ems="15"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="@id/button_Div"
