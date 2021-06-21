@@ -4,7 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/free"
     tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/windowOutput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTop"
+        android:ems="15"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@id/button_Div"
+        app:layout_constraintStart_toStartOf="@id/button_Clear"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_One"
@@ -185,7 +197,7 @@
         app:layout_constraintBottom_toBottomOf="@id/button_Point"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_Point"
-        app:layout_constraintTop_toBottomOf="@id/button_Sum"/>
+        app:layout_constraintTop_toBottomOf="@id/button_Sum" />
 
     <Button
         android:id="@+id/button_Clear"
@@ -225,15 +237,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"
         app:layout_constraintVertical_chainStyle="packed" />
-
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#CFD2FE"
-        android:src="@drawable/free"
-        android:scaleType="fitXY"/>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
