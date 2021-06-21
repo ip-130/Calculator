@@ -185,7 +185,7 @@
         app:layout_constraintBottom_toBottomOf="@id/button_Point"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_Point"
-        app:layout_constraintTop_toBottomOf="@id/button_Sum" />
+        app:layout_constraintTop_toBottomOf="@id/button_Sum"/>
 
     <Button
         android:id="@+id/button_Clear"
@@ -231,9 +231,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#CFD2FE"
-        android:scaleType="fitXY"
         android:src="@drawable/free"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:scaleType="fitXY"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
