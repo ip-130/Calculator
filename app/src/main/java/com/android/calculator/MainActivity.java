@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         initialization();
         ////обработка нажатий
-//        calcDisplay.setOnClickListener(this);
+        calcDisplay.setOnClickListener(this);
 
         btnOne.setOnClickListener(this);
         btnTwo.setOnClickListener(this);
@@ -187,7 +187,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_Nine:
                 first_value = 9;
                 addNumber((int) first_value);
-                addNumber((int) second_value);
                 break;
             case R.id.button_Null:
                 first_value = 0;
@@ -271,7 +270,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void addNumber(int number) {
         str_numb += Integer.toString(number);
-        calcDisplay.setText(str_numb);
+        if(first_value != 0) {
+            str_numb_two += Integer.toString(number);
+        }
+        calcDisplay.setText(str_numb_two);
     }
 
     public void mathOperation(char operation) {
