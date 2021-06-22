@@ -41,9 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private float first_value;
     private char operation;
-    private String str_numb;
+    private String str_numb = "";
 
     private static final String Key = "KEY";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         initialization();
         ////обработка нажатий
-        calcDisplay.setOnClickListener(this);
+//        calcDisplay.setOnClickListener(this);
 
         btnOne.setOnClickListener(this);
         btnTwo.setOnClickListener(this);
@@ -78,26 +79,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void initialization() {
         //получение пользовательских элементов по идентификатору
         calcDisplay = (TextView) findViewById(R.id.calcDisplay);
-        Button btnOne = (Button) findViewById(R.id.button_One);
-        Button btnTwo = (Button) findViewById(R.id.button_Two);
-        Button btnThree = (Button) findViewById(R.id.button_Three);
-        Button btnFour = (Button) findViewById(R.id.button_Four);
-        Button btnFive = (Button) findViewById(R.id.button_Five);
-        Button btnSix = (Button) findViewById(R.id.button_Six);
-        Button btnSeven = (Button) findViewById(R.id.button_Seven);
-        Button btnEight = (Button) findViewById(R.id.button_Eight);
-        Button btnNine = (Button) findViewById(R.id.button_Nine);
-        Button btnNull = (Button) findViewById(R.id.button_Null);
+        btnOne = (Button) findViewById(R.id.button_One);
+        btnTwo = (Button) findViewById(R.id.button_Two);
+        btnThree = (Button) findViewById(R.id.button_Three);
+        btnFour = (Button) findViewById(R.id.button_Four);
+        btnFive = (Button) findViewById(R.id.button_Five);
+        btnSix = (Button) findViewById(R.id.button_Six);
+        btnSeven = (Button) findViewById(R.id.button_Seven);
+        btnEight = (Button) findViewById(R.id.button_Eight);
+        btnNine = (Button) findViewById(R.id.button_Nine);
+        btnNull = (Button) findViewById(R.id.button_Null);
 
-        Button btnPoint = (Button) findViewById(R.id.button_Point);
-        Button btnSum = (Button) findViewById(R.id.button_Sum);
-        Button btnRazn = (Button) findViewById(R.id.button_Razn);
-        Button btnDiv = (Button) findViewById(R.id.button_Div);
-        Button btnPow = (Button) findViewById(R.id.button_Pow);
-        Button btnEquals = (Button) findViewById(R.id.button_Equals);
-        Button btnPersent = (Button) findViewById(R.id.button_Persent);
-        Button btnClear = (Button) findViewById(R.id.button_Clear);
-        Button btnClearOneSymbol = (Button) findViewById(R.id.button_ClearOneSymbol);
+        btnPoint = (Button) findViewById(R.id.button_Point);
+        btnSum = (Button) findViewById(R.id.button_Sum);
+        btnRazn = (Button) findViewById(R.id.button_Razn);
+        btnDiv = (Button) findViewById(R.id.button_Div);
+        btnPow = (Button) findViewById(R.id.button_Pow);
+        btnEquals = (Button) findViewById(R.id.button_Equals);
+        btnPersent = (Button) findViewById(R.id.button_Persent);
+        btnClear = (Button) findViewById(R.id.button_Clear);
+        btnClearOneSymbol = (Button) findViewById(R.id.button_ClearOneSymbol);
     }
 
     @Override
@@ -190,30 +191,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber((int) first_value);
                 break;
             case R.id.button_Point:
-                mathOperation(".");
+                point();
                 break;
             case R.id.button_Sum:
-                mathOperation("+");
+                mathOperation('+');
+                break;
+            case R.id.button_Razn:
+                mathOperation('-');
                 break;
             case R.id.button_Pow:
-                mathOperation("*");
+                mathOperation('X');
                 break;
             case R.id.button_Div:
-                mathOperation("/");
+                mathOperation('/');
+                break;
+            case R.id.button_Clear:
+                clear();
                 break;
             case R.id.button_Persent:
-                mathOperation("%");
+                percent();
+                break;
+            case R.id.button_ClearOneSymbol:
+                clearOneSymbol();
                 break;
             case R.id.button_Equals:
-                if (this.operation == '+' || this.operation == '-'
-                        || this.operation == '/' || this.operation == '*')
+                if(this.operation == '+' || this.operation == '-'
+                        || this.operation == '/' || this.operation == 'X')
                     equalMethod();
                 break;
-            default:
         }
     }
 
-    private void equalMethod() {
+    public void percent() {
+        if (!this.str_numb.equals("")) {
+            float num = Float.parseFloat(this.str_numb) * 0.01f;
+            this.str_numb = Float.toString(num);
+            calcDisplay.setText(str_numb);
+        }
+    }
+
+    public void equalMethod() {
         float res = 0;
         switch (this.operation) {
             case '+':
@@ -226,10 +243,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (Float.parseFloat(this.str_numb) != 0)
                     res = this.first_value / Float.parseFloat(this.str_numb);
                 else
-                    Toast.makeText(this, "На ноль делить нельзя!!!", Toast.LENGTH_SHORT).show();
-                ;
+                    Toast.makeText(this, "  null!!!", Toast.LENGTH_SHORT).show();;
                 break;
-            case '*':
+            case 'X':
                 res = this.first_value * Float.parseFloat(this.str_numb);
                 break;
         }
@@ -237,10 +253,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         clear();
     }
 
-    private void clear() {
+    public void clearOneSymbol() {
         this.str_numb = "";
         this.operation = 'A';
         this.first_value = 0;
+    }
+
+    public void clear() {
+        calcDisplay.setText("0");
+        this.str_numb = "";
+        this.first_value = 0;
+        this.operation = 'A';
     }
 
     public void addNumber(int number) {
@@ -248,9 +271,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calcDisplay.setText(str_numb);
     }
 
-    private void mathOperation(String s) {
+    public void mathOperation(char operation) {
         if (this.operation != '+' && this.operation != '-'
-                && this.operation != '/' && this.operation != '*' && this.operation != '.') {
+                && this.operation != '/' && this.operation != 'X') {
             this.first_value = Float.parseFloat(this.str_numb);
             calcDisplay.setText(String.valueOf(operation));
             this.str_numb = "";
@@ -258,18 +281,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void sum() {
-        if (!this.str_numb.equals("")) {
-            float num = Float.parseFloat(this.str_numb) * -1;
-            this.str_numb = Float.toString(num);
-            calcDisplay.setText(str_numb);
-        }
-    }
-
-    public void razn() {
-        if (!this.str_numb.equals("")) {
-            float num = Float.parseFloat(this.str_numb) * -1;
-            this.str_numb = Float.toString(num);
+    public void point() {
+        if (!this.str_numb.contains(".")) {
+            this.str_numb += ".";
             calcDisplay.setText(str_numb);
         }
     }
