@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 clearOneSymbol();
                 break;
             case R.id.button_Equals:
-                if(this.operation == '+' || this.operation == '-'
+                if (this.operation == '+' || this.operation == '-'
                         || this.operation == '/' || this.operation == 'X')
                     equalMethod();
                 break;
@@ -236,19 +236,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         float res = 0;
         switch (this.operation) {
             case '+':
-                res = this.first_value + Float.parseFloat(this.str_numb);
+                res = Float.parseFloat(this.str_numb_two) + Float.parseFloat(this.str_numb);
                 break;
             case '-':
-                res = this.first_value - Float.parseFloat(this.str_numb);
+                res = Float.parseFloat(this.str_numb_two) - Float.parseFloat(this.str_numb);
                 break;
             case '/':
                 if (Float.parseFloat(this.str_numb) != 0)
-                    res = this.first_value / Float.parseFloat(this.str_numb);
+                    res = Float.parseFloat(this.str_numb_two) / Float.parseFloat(this.str_numb);
                 else
-                    Toast.makeText(this, "  null!!!", Toast.LENGTH_SHORT).show();;
+                    Toast.makeText(this, "  null!!!", Toast.LENGTH_SHORT).show();
+                ;
                 break;
             case 'X':
-                res = this.first_value * Float.parseFloat(this.str_numb);
+                res = Float.parseFloat(this.str_numb_two) * Float.parseFloat(this.str_numb);
                 break;
         }
         clear();
@@ -270,20 +271,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void addNumber(int number) {
         str_numb += Integer.toString(number);
-        if(first_value != 0) {
+        /*if (first_value != 0) {
             str_numb_two += Integer.toString(number);
-        }
+        }*/
         calcDisplay.setText(str_numb_two);
     }
 
     public void mathOperation(char operation) {
-        if (this.operation != '+' && this.operation != '-'
-                && this.operation != '/' && this.operation != 'X') {
-            this.first_value = Float.parseFloat(this.str_numb);
-            calcDisplay.setText(String.valueOf(operation));
-            this.str_numb = "";
-            this.operation = operation;
-        }
+        str_numb_two = str_numb;
+        this.first_value = Float.parseFloat(this.str_numb);
+        calcDisplay.setText(String.valueOf(operation));
+        this.str_numb = "";
+        this.operation = operation;
     }
 
     public void point() {
