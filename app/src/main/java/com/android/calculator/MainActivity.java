@@ -40,8 +40,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnClearOneSymbol;
 
     private float first_value;
+    private float second_value;
     private char operation;
     private String str_numb = "";
+    private String str_numb_two = "";
 
     private static final String Key = "KEY";
 
@@ -185,6 +187,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_Nine:
                 first_value = 9;
                 addNumber((int) first_value);
+                addNumber((int) second_value);
                 break;
             case R.id.button_Null:
                 first_value = 0;
