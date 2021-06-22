@@ -249,8 +249,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 res = this.first_value * Float.parseFloat(this.str_numb);
                 break;
         }
-        calcDisplay.setText(Float.toString(res));
         clear();
+        calcDisplay.setText(Float.toString(res));
     }
 
     public void clearOneSymbol() {
