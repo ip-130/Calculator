@@ -264,7 +264,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void mathOperation(char operation) {
-//        str_numb_two = str_numb;
         this.first_value = Float.parseFloat(this.str_numb);
         calcDisplay.setText(String.valueOf(operation));
         this.str_numb = "";
