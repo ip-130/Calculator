@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView calcDisplay;
+
     private Button btn_0;
     private Button btn_1;
     private Button btn_2;
@@ -23,20 +24,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn_7;
     private Button btn_8;
     private Button btn_9;
-    private Button btnPoint;
-    private Button btnSum;
-    private Button btnRazn;
+
+    private Button btnAdd;
+    private Button btnSub;
+    private Button btnMult;
     private Button btnDiv;
-    private Button btnPow;
     private Button btnEquals;
     private Button btnPersent;
     private Button btnClear;
     private Button btnClearOneSymbol;
+    private Button btnPoint;
 
     private float first_value;
     private char operation;
     private String str_numb = "";
-
 
 
     @Override
@@ -45,7 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initialization();
-        ////обработка нажатий
+
+        //обработка нажатий
         calcDisplay.setOnClickListener(this);
 
         btn_0.setOnClickListener(this);
@@ -59,18 +61,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_8.setOnClickListener(this);
         btn_9.setOnClickListener(this);
 
-        btnPoint.setOnClickListener(this);
-        btnSum.setOnClickListener(this);
-        btnRazn.setOnClickListener(this);
+        btnAdd.setOnClickListener(this);
+        btnSub.setOnClickListener(this);
+        btnMult.setOnClickListener(this);
         btnDiv.setOnClickListener(this);
-        btnPow.setOnClickListener(this);
         btnEquals.setOnClickListener(this);
         btnPersent.setOnClickListener(this);
         btnClear.setOnClickListener(this);
         btnClearOneSymbol.setOnClickListener(this);
+        btnPoint.setOnClickListener(this);
     }
 
     public void initialization() {
+
         //получение пользовательских элементов по идентификатору
         calcDisplay = (TextView) findViewById(R.id.calculatorDisplay);
 
@@ -85,21 +88,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_8 = (Button) findViewById(R.id.button_8);
         btn_9 = (Button) findViewById(R.id.button_9);
 
-
-        btnPoint = (Button) findViewById(R.id.button_point);
-        btnSum = (Button) findViewById(R.id.button_add);
-        btnRazn = (Button) findViewById(R.id.button_sub);
-        btnDiv = (Button) findViewById(R.id.button_div);
-        btnPow = (Button) findViewById(R.id.button_mult);
-        btnEquals = (Button) findViewById(R.id.button_equals);
-        btnPersent = (Button) findViewById(R.id.button_Persent);
-        btnClear = (Button) findViewById(R.id.button_clear);
-        btnClearOneSymbol = (Button) findViewById(R.id.button_clearOneSymbol);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
+        btnAdd =  findViewById(R.id.button_add);
+        btnSub = findViewById(R.id.button_sub);
+        btnMult = findViewById(R.id.button_mult);
+        btnDiv = findViewById(R.id.button_div);
+        btnEquals = findViewById(R.id.button_equals);
+        btnPersent = findViewById(R.id.button_persent);
+        btnClear = findViewById(R.id.button_clear);
+        btnClearOneSymbol = findViewById(R.id.button_clearOneSymbol);
+        btnPoint = findViewById(R.id.button_point);
     }
 
 //    @Override
@@ -110,16 +107,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        instanceState.putParcelable(Key, (Parcelable) calcDisplay);
 //    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
 //    @Override
 //    protected void onSaveInstanceState(@NonNull Bundle saveInstanceState) {
 //        super.onSaveInstanceState(saveInstanceState);
@@ -128,15 +115,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        instanceState.putParcelable(Key, (Parcelable) calcDisplay);
 //    }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 
     @Override
     public void onClick(View v) {
@@ -199,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_clear:
                 clearAll();
                 break;
-            case R.id.button_Persent:
+            case R.id.button_persent:
                 percent();
                 break;
             case R.id.button_clearOneSymbol:
@@ -207,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_equals:
                 if (this.operation == '+' || this.operation == '-'
-                        || this.operation == '/' || this.operation == 'X')
+                        || this.operation == '/' || this.operation == '*')
                     equalMethod();
                 break;
         }
