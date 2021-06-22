@@ -13,7 +13,7 @@
     <string name="_addition">+</string>
     <string name="_subtraction">-</string>
     <string name="_division">/</string>
-    <string name="multiple">*</string>
+    <string name="_multiple">*</string>
     <string name="_equals">=</string>
     <string name="_point">.</string>
     <string name="_clear">AC</string>

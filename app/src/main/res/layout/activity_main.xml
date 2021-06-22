@@ -19,6 +19,8 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="@id/button_div"
         app:layout_constraintStart_toStartOf="@id/button_clear"
         app:layout_constraintTop_toTopOf="parent" />
@@ -173,7 +175,7 @@
         android:id="@+id/button_mult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/multiple"
+        android:text="@string/_multiple"
         android:textSize="@dimen/button_text"
         app:layout_constraintBottom_toTopOf="@id/button_sub"
         app:layout_constraintEnd_toEndOf="parent"
