@@ -1,5 +1,6 @@
 package com.android.calculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.pm.ActivityInfo;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView calcDisplay;
+    private TextView calculatorDisplay;
 
     private Button btn_0;
     private Button btn_1;
@@ -36,9 +37,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnPoint;
 
     private float first_value;
-    private char operation;
+    private String operation="";
     private String str_numb = "";
+    private String str_numb_2 = "";
 
+    private static final String Key = "Key";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initialization();
 
         //обработка нажатий
-        calcDisplay.setOnClickListener(this);
+        calculatorDisplay.setOnClickListener(this);
 
         btn_0.setOnClickListener(this);
         btn_1.setOnClickListener(this);
@@ -75,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void initialization() {
 
         //получение пользовательских элементов по идентификатору
-        calcDisplay = (TextView) findViewById(R.id.calculatorDisplay);
+        calculatorDisplay = findViewById(R.id.calculatorDisplay);
 
         btn_0 = (Button) findViewById(R.id.button_0);
         btn_1 = (Button) findViewById(R.id.button_1);
@@ -99,21 +102,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnPoint = findViewById(R.id.button_point);
     }
 
-//    @Override
-//    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        Bundle instanceState = null;
-//        instanceState.putString(Key, calcDisplay.getText().toString());
-//        instanceState.putParcelable(Key, (Parcelable) calcDisplay);
-//    }
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Bundle instanceState = null;
+        instanceState.putString(Key, calculatorDisplay.getText().toString());
+        instanceState.putParcelable(Key, (Parcelable) calculatorDisplay);
+    }
 
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle saveInstanceState) {
-//        super.onSaveInstanceState(saveInstanceState);
-//        Bundle instanceState = null;
-//        instanceState.putString(Key, calcDisplay.getText().toString());
-//        instanceState.putParcelable(Key, (Parcelable) calcDisplay);
-//    }
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle saveInstanceState) {
+        super.onSaveInstanceState(saveInstanceState);
+        Bundle instanceState = null;
+        instanceState.putString(Key, calculatorDisplay.getText().toString());
+        instanceState.putParcelable(Key, (Parcelable) calculatorDisplay);
+    }
 
 
     @Override
@@ -184,8 +187,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 clearOneSymbol();
                 break;
             case R.id.button_equals:
-                if (this.operation == '+' || this.operation == '-'
-                        || this.operation == '/' || this.operation == '*')
+                if(this.operation != "")
                     equalMethod();
                 break;
         }
@@ -195,63 +197,74 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (!this.str_numb.equals("")) {
             float num = Float.parseFloat(this.str_numb) * 0.01f;
             this.str_numb = Float.toString(num);
-            calcDisplay.setText(str_numb);
+            calculatorDisplay.setText(str_numb);
         }
     }
 
     public void equalMethod() {
         float res = 0;
-        switch (this.operation) {
-            case '+':
-                res = Float.parseFloat(this.str_numb) + Float.parseFloat(this.str_numb);
+        switch (String.valueOf(this.operation)) {
+            case "+":
+                res = Float.parseFloat(this.str_numb) + Float.parseFloat(this.str_numb_2);
                 break;
-            case '-':
-                res = Float.parseFloat(this.str_numb) - Float.parseFloat(this.str_numb);
+            case "-":
+                res = Float.parseFloat(this.str_numb) - Float.parseFloat(this.str_numb_2);
                 break;
-            case '/':
+            case "/":
                 if (Float.parseFloat(this.str_numb) != 0)
-                    res = Float.parseFloat(this.str_numb) / Float.parseFloat(this.str_numb);
+                    res = Float.parseFloat(this.str_numb) / Float.parseFloat(this.str_numb_2);
                 else
-                    Toast.makeText(this, "  null!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, " delete null!!!", Toast.LENGTH_SHORT).show();
                 ;
                 break;
-            case 'X':
-                res = Float.parseFloat(this.str_numb) * Float.parseFloat(this.str_numb);
+            case "*":
+                res = Float.parseFloat(this.str_numb) * Float.parseFloat(this.str_numb_2);
                 break;
         }
         clearAll();
-        calcDisplay.setText(Float.toString(res));
+        calculatorDisplay.setText(Float.toString(res));
     }
 
     public void clearOneSymbol() {
-        this.str_numb = "";
-        this.operation = 'A';
-        this.first_value = 0;
+        if (str_numb_2 == ""){
+            this.str_numb = this.str_numb.substring(0 , this.str_numb.length() - 1);
+            calculatorDisplay.setText(this.str_numb);
+        }else{
+            this.str_numb_2 = this.str_numb_2.substring(0 , this.str_numb_2.length() - 1);
+            calculatorDisplay.setText(this.str_numb_2);
+        }
+
     }
 
     public void clearAll() {
-        calcDisplay.setText("0");
+        calculatorDisplay.setText("0");
         this.str_numb = "";
         this.first_value = 0;
-        this.operation = 'A';
+        this.str_numb_2 = "";
+        this.operation = "";
     }
 
     public void addNumber(int number) {
-        str_numb += Integer.toString(number);
-        calcDisplay.setText(str_numb);
+        if(this.operation == "")
+        {
+            str_numb += Integer.toString(number);
+            calculatorDisplay.setText(str_numb);
+        }else  {
+            str_numb_2 += Integer.toString(number);
+            calculatorDisplay.setText(str_numb_2);
+        }
+
     }
 
     public void mathOperation(char operation) {
-        this.first_value = Float.parseFloat(this.str_numb);
-        calcDisplay.setText(String.valueOf(operation));
-        this.str_numb = "";
-        this.operation = operation;
+        calculatorDisplay.setText(String.valueOf(operation));
+        this.operation = String.valueOf(operation);
     }
 
     public void point() {
         if (!this.str_numb.contains(".")) {
             this.str_numb += ".";
-            calcDisplay.setText(str_numb);
+            calculatorDisplay.setText(str_numb);
         }
     }
 }
