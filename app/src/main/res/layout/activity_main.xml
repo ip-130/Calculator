@@ -15,10 +15,10 @@
         android:ems="15"
         android:hint="@string/enter_expression"
         android:inputType="numberDecimal"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
+        android:paddingLeft="@dimen/paddingLeft"
+        android:paddingTop="@dimen/paddingTop"
+        android:paddingRight="@dimen/paddingRight"
+        android:paddingBottom="@dimen/paddingBottom"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="@id/button_div"
@@ -27,7 +27,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_0"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/layout_width"
         android:layout_height="wrap_content"
         android:text="@string/_0"
         android:textSize="@dimen/button_text"
