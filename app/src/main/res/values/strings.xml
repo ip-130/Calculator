@@ -19,6 +19,6 @@
     <string name="_clear">AC</string>
     <string name="_clearOneSymbol">C</string>
     <string name="_persent">%</string>
-    <string name="enter_expression">Enter expression</string>
+    <string name="enter_expression">Result</string>
     />
 </resources>
