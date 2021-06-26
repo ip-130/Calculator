@@ -24,7 +24,7 @@
     </style>
 
     <!-- NumberActionButton2 for keys "*", "-", "+". -->
-    <style name="AritfmeticOperationStyle">
+    <style name="OperationStyle">
         <item name="android:layout_height">@dimen/layout_width</item>
         <item name="android:textSize">@dimen/size_text</item>
         <item name="android:backgroundTint">#1F4240</item>
