@@ -3,6 +3,7 @@ package com.android.calculator;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -11,8 +12,11 @@ import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.radiobutton.MaterialRadioButton;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -40,21 +44,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnPoint;
 
     private float first_value;
-    private String operation="";
+    private String operation = "";
     private String str_numb = "";
     private String str_numb_2 = "";
 
     private static final String Key = "Key";
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initialization();
-
 
 
 
@@ -82,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnClearOneSymbol.setOnClickListener(this);
         btnPoint.setOnClickListener(this);
     }
+
     public void initialization() {
 
         //получение пользовательских элементов по идентификатору

@@ -14,39 +14,24 @@
                 <!-- Customize your theme here. -->
     </style>
 
-    <style name="RadioButtonStyle">
-        <item name="android:layout_height">@dimen/layout_width</item>
-        <item name="android:textSize">@dimen/size_text</item>
-        <item name="android:backgroundTint">#4D817F</item>
-        <item name="android:textColor">@android:color/background_dark</item>
-        <item name="android:layout_margin">@dimen/marginTop</item>
-    </style>
-
     <!-- NumberButtonStyle for keys "1, 2, 3, 4, 5, 6, 7, 8, 9, 0". -->
-    <style name="ButtonBaseStyle">
+    <style name="Calculator_light" >
         <item name="android:layout_height">@dimen/layout_width</item>
         <item name="android:textSize">@dimen/size_text</item>
         <item name="android:backgroundTint">#4D817F</item>
         <item name="android:textColor">@android:color/background_dark</item>
         <item name="android:layout_margin">@dimen/marginTop</item>
-    </style>
 
-    <!-- NumberActionButton2 for keys "*", "-", "+". -->
-    <style name="OperationStyle">
-        <item name="android:layout_height">@dimen/layout_width</item>
-        <item name="android:textSize">@dimen/size_text</item>
-        <item name="android:backgroundTint">#1F4240</item>
-        <item name="android:textColor">#715A5A</item>
-        <item name="android:layout_margin">@dimen/marginTop</item>
-    </style>
+        <style name="EditTextStyle">
+            <item name="android:layout_height">@dimen/layout_width</item>
+            <item name="android:backgroundTint">#1F4240</item>
+            <item name="android:textColor">@color/black</item>
+            <item name="android:textColorHint">@color/black</item>
+            <item name="android:hint">@string/result</item>
 
-    <style name="EditTextStyle">
-        <item name="android:layout_height">@dimen/layout_width</item>
-        <item name="android:backgroundTint">#1F4240</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textColorHint">@color/black</item>
-        <item name="android:hint">@string/result</item>
+        </style>
 
     </style>
+
 
 </resources>

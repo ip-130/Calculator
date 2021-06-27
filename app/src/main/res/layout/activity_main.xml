@@ -7,13 +7,14 @@
     android:background="@drawable/free"
     tools:context=".MainActivity">
 
+
     <EditText
         android:id="@+id/calculatorDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTop"
         android:ems="15"
-        style="@style/EditTextStyle"
+        android:theme="@style/Calculator_light"
         android:hint="@string/result"
         android:inputType="numberDecimal"
         android:textStyle="italic"
@@ -27,7 +28,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_0"
         android:textSize="@dimen/size_text"
-        android:theme="@style/ButtonBaseStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintEnd_toEndOf="@id/button_8"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="@id/button_7"
@@ -39,7 +40,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_1"
         android:textSize="@dimen/size_text"
-        android:theme="@style/ButtonBaseStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toTopOf="@id/button_4"
         app:layout_constraintEnd_toStartOf="@id/button_2"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -52,7 +53,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_2"
         android:textSize="@dimen/size_text"
-        android:theme="@style/ButtonBaseStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toTopOf="@id/button_5"
         app:layout_constraintEnd_toStartOf="@id/button_3"
         app:layout_constraintStart_toEndOf="@id/button_1"
@@ -65,7 +66,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_3"
         android:textSize="@dimen/size_text"
-        android:theme="@style/ButtonBaseStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toTopOf="@id/button_6"
         app:layout_constraintEnd_toStartOf="@id/button_mult"
         app:layout_constraintStart_toEndOf="@id/button_2"
@@ -77,7 +78,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_4"
         android:textSize="@dimen/size_text"
-        android:theme="@style/ButtonBaseStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toTopOf="@id/button_7"
         app:layout_constraintEnd_toStartOf="@id/button_5"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -90,7 +91,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_5"
         android:textSize="@dimen/size_text"
-        android:theme="@style/ButtonBaseStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toTopOf="@id/button_8"
         app:layout_constraintEnd_toStartOf="@id/button_6"
         app:layout_constraintStart_toEndOf="@id/button_4"
@@ -102,7 +103,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_6"
         android:textSize="@dimen/size_text"
-        android:theme="@style/ButtonBaseStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toTopOf="@id/button_9"
         app:layout_constraintEnd_toStartOf="@id/button_sub"
         app:layout_constraintStart_toEndOf="@id/button_5"
@@ -115,7 +116,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_7"
         android:textSize="@dimen/size_text"
-        android:theme="@style/ButtonBaseStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/button_8"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -128,7 +129,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_8"
         android:textSize="@dimen/size_text"
-        android:theme="@style/ButtonBaseStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/button_9"
         app:layout_constraintStart_toEndOf="@id/button_7"
@@ -140,7 +141,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_9"
         android:textSize="@dimen/size_text"
-        android:theme="@style/ButtonBaseStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/button_add"
         app:layout_constraintStart_toEndOf="@id/button_8"
@@ -151,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/point"
-        android:theme="@style/OperationStyle"
+        android:theme="@style/Calculator_light"
         android:textSize="@dimen/size_text"
         app:layout_constraintEnd_toStartOf="@id/button_equals"
         app:layout_constraintStart_toEndOf="@id/button_0"
@@ -163,7 +164,7 @@
         android:layout_height="wrap_content"
         android:text="@string/add"
         android:textSize="@dimen/size_text"
-        android:theme="@style/OperationStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_9"
@@ -175,7 +176,7 @@
         android:layout_height="wrap_content"
         android:text="@string/sub"
         android:textSize="@dimen/size_text"
-        android:theme="@style/OperationStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toTopOf="@id/button_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_6"
@@ -187,7 +188,7 @@
         android:layout_height="wrap_content"
         android:text="@string/mult"
         android:textSize="@dimen/size_text"
-        android:theme="@style/OperationStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toTopOf="@id/button_sub"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_3"
@@ -199,7 +200,7 @@
         android:layout_height="wrap_content"
         android:text="@string/div"
         android:textSize="@dimen/size_text"
-        android:theme="@style/OperationStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toTopOf="@id/button_mult"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_persent"
@@ -213,7 +214,7 @@
         android:layout_height="wrap_content"
         android:text="@string/equals"
         android:textSize="@dimen/size_text"
-        android:theme="@style/OperationStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toBottomOf="@id/button_point"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_point"
@@ -225,7 +226,7 @@
         android:layout_height="wrap_content"
         android:text="@string/clear_all"
         android:textSize="@dimen/size_text"
-        android:theme="@style/OperationStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toTopOf="@id/button_1"
         app:layout_constraintEnd_toStartOf="@id/button_clearOneSymbol"
         app:layout_constraintStart_toStartOf="parent"
@@ -239,7 +240,7 @@
         android:layout_height="wrap_content"
         android:text="@string/clear_one_symbol"
         android:textSize="@dimen/size_text"
-        android:theme="@style/OperationStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toTopOf="@id/button_2"
         app:layout_constraintEnd_toStartOf="@id/button_persent"
         app:layout_constraintStart_toEndOf="@id/button_clear"
@@ -253,7 +254,7 @@
         android:layout_height="wrap_content"
         android:text="@string/percent"
         android:textSize="@dimen/size_text"
-        android:theme="@style/OperationStyle"
+        android:theme="@style/Calculator_light"
         app:layout_constraintBottom_toTopOf="@id/button_3"
         app:layout_constraintEnd_toStartOf="@id/button_div"
         app:layout_constraintStart_toEndOf="@id/button_clearOneSymbol"
@@ -265,24 +266,25 @@
         android:id="@+id/radioButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/button_0"
-        app:layout_constraintStart_toEndOf="@id/button_equals"
-        app:layout_constraintTop_toTopOf="@id/button_0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_0">
 
-<!--    <com.google.android.material.radiobutton.MaterialRadioButton-->
-<!--        android:id="@+id/radioButtonMyCoolStyle"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/my_cool_style" />-->
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioButtonLightTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="light theme " />
 
-<!--    <com.google.android.material.radiobutton.MaterialRadioButton-->
-<!--        android:id="@+id/radioButtonMaterialLight"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/material_light" />-->
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioButtonDarkTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dark theme " />
+    </RadioGroup>
+
+
 
 
 
