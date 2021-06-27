@@ -5,14 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity<Palette> extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView calculatorDisplay;
 
@@ -44,12 +46,17 @@ public class MainActivity<Palette> extends AppCompatActivity implements View.OnC
 
     private static final String Key = "Key";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initialization();
+
+
+
 
         //обработка нажатий
         calculatorDisplay.setOnClickListener(this);
@@ -75,7 +82,6 @@ public class MainActivity<Palette> extends AppCompatActivity implements View.OnC
         btnClearOneSymbol.setOnClickListener(this);
         btnPoint.setOnClickListener(this);
     }
-
     public void initialization() {
 
         //получение пользовательских элементов по идентификатору

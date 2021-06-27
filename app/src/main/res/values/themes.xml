@@ -14,6 +14,14 @@
                 <!-- Customize your theme here. -->
     </style>
 
+    <style name="RadioButtonStyle">
+        <item name="android:layout_height">@dimen/layout_width</item>
+        <item name="android:textSize">@dimen/size_text</item>
+        <item name="android:backgroundTint">#4D817F</item>
+        <item name="android:textColor">@android:color/background_dark</item>
+        <item name="android:layout_margin">@dimen/marginTop</item>
+    </style>
+
     <!-- NumberButtonStyle for keys "1, 2, 3, 4, 5, 6, 7, 8, 9, 0". -->
     <style name="ButtonBaseStyle">
         <item name="android:layout_height">@dimen/layout_width</item>

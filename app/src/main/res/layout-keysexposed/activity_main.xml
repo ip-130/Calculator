@@ -9,17 +9,17 @@
 
     <EditText
         android:id="@+id/calculatorDisplay"
+        style="@style/EditTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTop"
         android:ems="15"
-        style="@style/EditTextStyle"
         android:hint="@string/result"
         android:inputType="numberDecimal"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="@id/button_div"
         app:layout_constraintStart_toStartOf="@id/button_clear"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_0"
@@ -148,10 +148,10 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_point"
+        style="@style/AritfmeticOperationStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/point"
-        style="@style/AritfmeticOperationStyle"
         android:textSize="@dimen/size_text"
         app:layout_constraintEnd_toStartOf="@id/button_equals"
         app:layout_constraintStart_toEndOf="@id/button_0"
@@ -159,11 +159,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_add"
+        style="@style/AritfmeticOperationStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add"
         android:textSize="@dimen/size_text"
-        style="@style/AritfmeticOperationStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_9"
@@ -171,11 +171,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_sub"
+        style="@style/AritfmeticOperationStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sub"
         android:textSize="@dimen/size_text"
-        style="@style/AritfmeticOperationStyle"
         app:layout_constraintBottom_toTopOf="@id/button_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_6"
@@ -183,11 +183,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_mult"
+        style="@style/AritfmeticOperationStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/mult"
         android:textSize="@dimen/size_text"
-        style="@style/AritfmeticOperationStyle"
         app:layout_constraintBottom_toTopOf="@id/button_sub"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_3"
@@ -195,11 +195,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_div"
+        style="@style/AritfmeticOperationStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/div"
         android:textSize="@dimen/size_text"
-        style="@style/AritfmeticOperationStyle"
         app:layout_constraintBottom_toTopOf="@id/button_mult"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_persent"
@@ -209,11 +209,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_equals"
+        style="@style/AritfmeticOperationStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/equals"
         android:textSize="@dimen/size_text"
-        style="@style/AritfmeticOperationStyle"
         app:layout_constraintBottom_toBottomOf="@id/button_point"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/button_point"
@@ -221,11 +221,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_clear"
+        style="@style/AritfmeticOperationStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/clear_all"
         android:textSize="@dimen/size_text"
-        style="@style/AritfmeticOperationStyle"
         app:layout_constraintBottom_toTopOf="@id/button_1"
         app:layout_constraintEnd_toStartOf="@id/button_clearOneSymbol"
         app:layout_constraintStart_toStartOf="parent"
@@ -235,11 +235,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_clearOneSymbol"
+        style="@style/AritfmeticOperationStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/clear_one_symbol"
         android:textSize="@dimen/size_text"
-        style="@style/AritfmeticOperationStyle"
         app:layout_constraintBottom_toTopOf="@id/button_2"
         app:layout_constraintEnd_toStartOf="@id/button_persent"
         app:layout_constraintStart_toEndOf="@id/button_clear"
@@ -249,17 +249,38 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_persent"
+        style="@style/AritfmeticOperationStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/percent"
         android:textSize="@dimen/size_text"
-        style="@style/AritfmeticOperationStyle"
         app:layout_constraintBottom_toTopOf="@id/button_3"
         app:layout_constraintEnd_toStartOf="@id/button_div"
         app:layout_constraintStart_toEndOf="@id/button_clearOneSymbol"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <RadioGroup
+        android:id="@+id/radioButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" >
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioButtonMyCoolStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="text_1" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioButtonMaterialLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="text_2" />
+    </RadioGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
