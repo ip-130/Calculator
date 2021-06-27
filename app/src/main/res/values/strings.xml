@@ -20,4 +20,8 @@
     <string name="percent">%</string>
     <string name="point">.</string>
     <string name="result">Result</string>
+    <string name="my_cool_style">My cool style</string>
+    <string name="material_light">Material light</string>
+    <string name="material_light_action_bar_dark">Material light action bar dark</string>
+    <string name="material_dark">Material dark</string>
 </resources>
