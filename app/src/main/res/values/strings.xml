@@ -10,15 +10,14 @@
     <string name="_7">7</string>
     <string name="_8">8</string>
     <string name="_9">9</string>
-    <string name="_addition">+</string>
-    <string name="_subtraction">-</string>
-    <string name="_division">/</string>
-    <string name="_multiple">*</string>
-    <string name="_equals">=</string>
-    <string name="_point">.</string>
-    <string name="_clear">AC</string>
-    <string name="_clearOneSymbol">C</string>
-    <string name="_persent">%</string>
-    <string name="enter_expression">Result</string>
-    />
+    <string name="sub">-</string>
+    <string name="add">+</string>
+    <string name="mult">*</string>
+    <string name="div">/</string>
+    <string name="equals">=</string>
+    <string name="clear_all">AC</string>
+    <string name="clear_one_symbol">C</string>
+    <string name="percent">%</string>
+    <string name="point">.</string>
+    <string name="result">Result</string>
 </resources>
