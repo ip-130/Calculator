@@ -5,19 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.material.radiobutton.MaterialRadioButton;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -51,11 +46,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final String Key = "Key";
 
+    private final static String keyCounters = "Counters";
+    private Counters counters;
+    private TextView textCounter1; // пользовательский элемент 1-го счетчика
+    private TextView textCounter2; // пользовательский элемент 2-го счетчика
+    private TextView textCounter3; // пользовательский элемент 3-го счетчика
+    private TextView textCounter4;
+
     // Имя настроек
     private static final String NameSharedPreference = "LOGIN";
-
-    // Имя параметра в настройках
-
 
     private static final String appTheme = "APP_THEME";
     private static final int MyCoolCodeStyle = 0;
@@ -63,7 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int AppThemeCodeStyle = 2;
     private static final int AppThemeDarkCodeStyle = 3;
 
-
+    public MainActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +73,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initialization();
-
-
-
 
         //обработка нажатий
         calculatorDisplay.setOnClickListener(this);
@@ -192,22 +189,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
-//    @Override
-//    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        Bundle instanceState = null;
-//        instanceState.putString(Key, calculatorDisplay.getText().toString());
-//        instanceState.putParcelable(Key, (Parcelable) calculatorDisplay);
-//    }
-//
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle saveInstanceState) {
-//        super.onSaveInstanceState(saveInstanceState);
-//        Bundle instanceState = null;
-//        instanceState.putString(Key, calculatorDisplay.getText().toString());
-//        instanceState.putParcelable(Key, (Parcelable) calculatorDisplay);
-//    }
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle instanceState) {
+        super.onSaveInstanceState(instanceState);
+        instanceState.putParcelable(keyCounters, counters);
+    }
+    // Восстановление данных
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle instanceState) {
+        super.onRestoreInstanceState(instanceState);
+        counters = instanceState.getParcelable(keyCounters);
+        setTextCounters();
+    }
+    // Отображение данных на экране
+    private void setTextCounters() {
+        setTextCounter(textCounter1, counters.getCounter1());
+        setTextCounter(textCounter2, counters.getCounter2());
+        setTextCounter(textCounter3, counters.getCounter3());
+        setTextCounter(textCounter4, counters.getCounter4());
+    }
+    // Установить текст на TextView
+    private void setTextCounter(TextView textCounter, int counter){
+        textCounter.setText(String.format(Locale.getDefault(), "%d", counter));
+    }
 
 
     @Override
