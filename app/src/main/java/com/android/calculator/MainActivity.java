@@ -3,11 +3,14 @@ package com.android.calculator;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,7 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView textCounter3; // пользовательский элемент 3-го счетчика
     private TextView textCounter4;
 
-    // Имя настроек
+    private final static String TEXT = "PARAM";
+
     private static final String NameSharedPreference = "LOGIN";
 
     private static final String appTheme = "APP_THEME";
@@ -71,8 +75,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Устанавливать тему надо только до установки макета активити
         setTheme(getAppTheme(R.style.MyCoolStyle));
         setContentView(R.layout.activity_main);
+        final EditText text = findViewById(R.id.editText);
+        Button runEcho = findViewById(R.id.button);
+        runEcho.setOnClickListener(new View.OnClickListener(){
+            @Override
+        public void onClick(View v) {
+            Uri uri = Uri.parse("example://intent");
+            Intent runEchoIntent = new Intent(Intent.ACTION_VIEW, uri);
+            runEchoIntent.putExtra(TEXT, text.getText().toString());
+            startActivity(runEchoIntent);
+        }
+        });
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initialization();
+
 
         //обработка нажатий
         calculatorDisplay.setOnClickListener(this);
@@ -202,16 +219,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        setTextCounters();
 //    }
     // Отображение данных на экране
-    private void setTextCounters() {
-        setTextCounter(textCounter1, counters.getCounter1());
-        setTextCounter(textCounter2, counters.getCounter2());
-        setTextCounter(textCounter3, counters.getCounter3());
-        setTextCounter(textCounter4, counters.getCounter4());
-    }
-    // Установить текст на TextView
-    private void setTextCounter(TextView textCounter, int counter){
-        textCounter.setText(String.format(Locale.getDefault(), "%d", counter));
-    }
+//    private void setTextCounters() {
+//        setTextCounter(textCounter1, counters.getCounter1());
+//        setTextCounter(textCounter2, counters.getCounter2());
+//        setTextCounter(textCounter3, counters.getCounter3());
+//        setTextCounter(textCounter4, counters.getCounter4());
+//    }
+//    // Установить текст на TextView
+//    private void setTextCounter(TextView textCounter, int counter){
+//        textCounter.setText(String.format(Locale.getDefault(), "%d", counter));
+//    }
 
 
     @Override
