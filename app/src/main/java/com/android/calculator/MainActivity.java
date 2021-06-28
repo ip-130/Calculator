@@ -189,18 +189,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle instanceState) {
-        super.onSaveInstanceState(instanceState);
-        instanceState.putParcelable(keyCounters, counters);
-    }
-    // Восстановление данных
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle instanceState) {
-        super.onRestoreInstanceState(instanceState);
-        counters = instanceState.getParcelable(keyCounters);
-        setTextCounters();
-    }
+//    @Override
+//    public void onSaveInstanceState(@NonNull Bundle instanceState) {
+//        super.onSaveInstanceState(instanceState);
+//        instanceState.putParcelable(keyCounters, counters);
+//    }
+//    // Восстановление данных
+//    @Override
+//    protected void onRestoreInstanceState(@NonNull Bundle instanceState) {
+//        super.onRestoreInstanceState(instanceState);
+//        counters = instanceState.getParcelable(keyCounters);
+//        setTextCounters();
+//    }
     // Отображение данных на экране
     private void setTextCounters() {
         setTextCounter(textCounter1, counters.getCounter1());
