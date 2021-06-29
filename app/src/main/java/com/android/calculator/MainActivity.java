@@ -2,7 +2,10 @@ package com.android.calculator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.KeyEventDispatcher;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -47,14 +50,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String str_numb = "";
     private String str_numb_2 = "";
 
-    private static final String Key = "Key";
-
-    private final static String keyCounters = "Counters";
-    private Counters counters;
-    private TextView textCounter1; // пользовательский элемент 1-го счетчика
-    private TextView textCounter2; // пользовательский элемент 2-го счетчика
-    private TextView textCounter3; // пользовательский элемент 3-го счетчика
-    private TextView textCounter4;
+//    private static final String Key = "Key";
+//
+//    private final static String keyCounters = "Counters";
+//    private Counters counters;
+//    private TextView textCounter1; // пользовательский элемент 1-го счетчика
+//    private TextView textCounter2; // пользовательский элемент 2-го счетчика
+//    private TextView textCounter3; // пользовательский элемент 3-го счетчика
+//    private TextView textCounter4;
 
     private final static String TEXT = "PARAM";
 
@@ -75,17 +78,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Устанавливать тему надо только до установки макета активити
         setTheme(getAppTheme(R.style.MyCoolStyle));
         setContentView(R.layout.activity_main);
+
         final EditText text = findViewById(R.id.editText);
         Button runEcho = findViewById(R.id.button);
-        runEcho.setOnClickListener(new View.OnClickListener(){
+
+        runEcho.setOnClickListener(new View.OnClickListener() {
             @Override
-        public void onClick(View v) {
-            Uri uri = Uri.parse("example://intent");
-            Intent runEchoIntent = new Intent(Intent.ACTION_VIEW, uri);
-            runEchoIntent.putExtra(TEXT, text.getText().toString());
-            startActivity(runEchoIntent);
+            public void onClick(View v) {
+//                Uri uri = Uri.parse("example://com.google.intentprocess");
+                Intent runEchoIntent = new Intent();
+                runEchoIntent.setComponent(new ComponentName("com.google.intentprocess","com.google.intentprocess.MainActivity"));
+                runEchoIntent.putExtra(TEXT, text.getText().toString());
+                startActivity(runEchoIntent);
+            }
+
         }
-        });
+        );
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initialization();
@@ -117,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initThemeChooser();
     }
+
 
     public void initialization() {
 
